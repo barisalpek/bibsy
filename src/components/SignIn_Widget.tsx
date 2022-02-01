@@ -3,9 +3,9 @@ import {FaUser} from 'react-icons/fa';
 import ntilogo from "../assets/images/NTI-Gymnasiet.svg";
 const SignInWidget = () => {
     return (       
-        <div className="container grid absolute bg-pp mx-auto rounded-2xl w-auto  md:w-[30%] sm:w-[40%] xs:w-[80%]">
+        <div className="container grid absolute bg-pp mx-auto rounded-2xl w-auto lg:w-[25%] md:w-[40%] sm:w-[60%] xs:w-[80%]">
             <img src={ntilogo} alt="" className=" p-10 m-auto w-auto lg:w-[65%] md:w-[72.5] sm:w-[80%]" />
-            <form action="#" method="post" className="w-[80%] m-auto">
+            <form action="#" method="post" className="w-[80%] mt-10 m-auto pb-10">
                 
                 <div className="flex items-center  bg-transparent text-white  border-2 border-white border-r-0 border-l-0 border-t-0  mb-6 pb-2 ">
                     <label htmlFor="email" className="grid mr-4"><FaUser color='white'size={'2rem'}/></label>

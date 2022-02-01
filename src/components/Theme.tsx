@@ -7,7 +7,7 @@ const Theme=()=> {
       <div className="grid h-screen bg-pinkky"> 
         <img src={bg_1} alt="" className="grid"/>
         <img src={bg_0} alt="" className="grid absolute top-0"/>
-        <img src={bg_2} alt="" className="grid absolute inset-x-0 bottom-0"/>
+        <img src={bg_2} alt="" className="grid absolute bottom-0"/>
       </div>
     );
 }
