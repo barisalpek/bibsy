@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Hello from './components/Hello';
+import List from './components/List';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Hello/>
+    <List mainColor='lila' listColor='ljusLila' />
   </React.StrictMode>,
   document.getElementById('root')
 );
