@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import Navbar from './components/Navbar';
 import './index.css';
 
+
 ReactDOM.render(
   <React.StrictMode>
-    <Navbar />
+    <List mainColor='lila' listColor='ljusLila' />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
