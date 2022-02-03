@@ -18,6 +18,9 @@ module.exports = {
         'ljusGrön': '#F3F8EA',
         'grön': '#89B52B',
         'mörkGrön': '#58741B',
+        'ljusGul': '#FBF7EB',
+        'gul': '#D6B235',
+        'mörkGul': '#897222',
         'adminSidebar': '#1F102B',
       }
     },
