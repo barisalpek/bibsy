@@ -3,7 +3,7 @@ import {FaUser} from 'react-icons/fa';
 import ntilogo from "../assets/images/NTI-Gymnasiet.svg";
 const SignInWidget = () => {
     return (       
-        <div className="container grid absolute bg-pp mx-auto rounded-2xl w-auto lg:w-[25%] md:w-[40%] sm:w-[60%] xs:w-[80%]">
+        <div className="container grid bg-pp mx-auto my-auto rounded-2xl w-auto lg:w-[25%] md:w-[40%] sm:w-[60%] xs:w-[80%] -z-[0]">
             <img src={ntilogo} alt="" className=" p-10 m-auto w-auto lg:w-[65%] md:w-[72.5] sm:w-[80%]" />
             <form action="#" method="post" className="w-[80%] mt-10 m-auto pb-10">
                 
