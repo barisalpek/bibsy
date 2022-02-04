@@ -1,6 +1,8 @@
 import React, { useEffect,  useState } from "react";
 import Check from '../assets/images/check-solid.svg';
 import Cross from '../assets/images/times-solid.svg';
+import {BsCheckLg} from 'react-icons/bs';
+import {TiTimes} from 'react-icons/ti';
 
 type Props = {
     mainColor: string;
@@ -27,9 +29,15 @@ type Book  = {
     inStock: boolean
 }
 
+type ListStyle = {
+    theadStyle: string;
+    trStyle: string;
+    tdStyle: string;
+    imgStyle: string;
+    svgStyle: string;
+}
+//List component, modular by passing in props
 const List = (props: Props) => {
-
-    
 
     const Metro: Book = {
         title: 'Metro 2033',
@@ -61,7 +69,65 @@ const List = (props: Props) => {
         inStock: false,
     };
 
-    
+    const HelloAndroid: Book = {
+        title: 'Hello, Android',
+        author: 'Ed Burnette',
+        published: '2015',
+        isbn: '9781680500370',
+        amount: 3,
+        loaned: 3,
+        inStock: false,
+    };
+
+    const JsJq: Book = {
+        title: 'JAVASCRIPT&JQUERY',
+        author: 'Jon Ducket',
+        published: '2014',
+        isbn: '9781118531648',
+        amount: 3,
+        loaned: 3,
+        inStock: false,
+    };
+
+    const Python: Book = {
+        title: 'Programmering 1 Python',
+        author: 'Jan Sundström',
+        published: '2016',
+        isbn: '9789173793452',
+        amount: 3,
+        loaned: 3,
+        inStock: false,
+    };
+
+    const Clean: Book = {
+        title: 'Clean Code',
+        author: 'Robert C. Martin',
+        published: '2009',
+        isbn: '9780132350882',
+        amount: 3,
+        loaned: 3,
+        inStock: false,
+    };
+
+    const DB: Book = {
+        title: 'Databas-Teknik',
+        author: 'Thomas Padron',
+        published: '2018',
+        isbn: '9789144069197',
+        amount: 3,
+        loaned: 3,
+        inStock: false,
+    };
+
+    const WDNE: Book = {
+        title: 'Web development with Node and Express',
+        author: 'Ethan Brown',
+        published: '2019',
+        isbn: '9781492053514',
+        amount: 3,
+        loaned: 3,
+        inStock: false,
+    };
 
     const Dejan: Person = {
         name: 'Dejan Dacic',
@@ -83,43 +149,43 @@ const List = (props: Props) => {
         Dejan,
         Dejan,
         Dejan,
+        
     ];
 
     const books = [
         Metro,
         Metro2,
         Metro3,
+        HelloAndroid,
+        JsJq,
+        Python,
+        Clean,
+        DB,
+        WDNE,
     ];
 
-    type ListStyle = {
-        theadStyle: string;
-        trStyle: string;
-        tdStyle: string;
-        imgStyle: string;
-        svgStyle: string;
-    }
+    
 
 const listStyle: ListStyle = {
     theadStyle: 'bg-lila h-16 text-3xl text-left text-white',
     trStyle: 'w-screen odd:bg-white even:bg-ljusLila h-16',
     tdStyle: 'p-3',
     imgStyle: 'w-[20%] h-auto',
-    svgStyle: 'h-[100%] w-[20%] ml-5',
+    svgStyle: 'h-[100%] ml-5',
 }
-
+    //Data from db to useState
     const [data, setData] = useState<any>([]);
+    //Modularity from props can be set to member or book
     const [isMemberType, setIsMemberType] = useState<boolean | null>(null);
 
     useEffect(() => {
-         //fetching data
+        //fetching data
         //fakeUseFetch
         //${props.mainColor}
         //${props.listColor}
 
-        
-
         setData(books);
-
+        //Determen what is passed in through props
         if (props.typeOf === 'member') {
             setIsMemberType(true);
         }
@@ -134,6 +200,7 @@ const listStyle: ListStyle = {
 
     return (
         <div className="h-[100%] w-[100%] rounded">
+            {/*Conditional rendering, only renders if the passed in prop is 'member'*/}
             {isMemberType && <table className="h-[100%] w-[100%] rounded overflow-y-scroll">
                 <thead className={listStyle.theadStyle}>
                     <th className={listStyle.tdStyle}>Name</th>
@@ -143,6 +210,7 @@ const listStyle: ListStyle = {
                     <th className={listStyle.tdStyle}>Books</th>
                 </thead>
                 <tbody className="">
+                    {/*Loops through each person that was fetched from the db*/}
                     {data.map((item: Person) => {
                         return (
                         <tr className={listStyle.trStyle}>
@@ -165,13 +233,14 @@ const listStyle: ListStyle = {
                     })}
                 </tbody>
             </table>}
+            {/*Conditional rendering, only renders if passed in prop is book*/}
             {!isMemberType && <div className="h-[100%] w-[100%] rounded">
                 <div className="grid items-center bg-gul h-[10%] text-3xl text-left text-white rounded-t-2xl pl-5">
                     Books
                 </div>
                 
                 <div className="h-[90%] overflow-y-auto">
-                    
+                    {/*Loops through each book fetched from the db*/}
                     {data.map((item: Book, index: Number) => {
                         return (
                             <div className="w-[100%] h-auto odd:bg-white even:bg-ljusGul p-5 flex flex-row" key={String(index)}>
@@ -184,14 +253,17 @@ const listStyle: ListStyle = {
                                     <h4 className="p-2">Published: {item.published}</h4>
                                     <h4 className="p-2">Amount: {item.amount}</h4>
                                 </div>
-                                <div className="flex flex-col justify-center w-auto align-center w-[20%]">
+                                <div className="flex flex-col justify-center align-center w-[30%]">
                                     
                                     {/*If there are items in stock*/}
                                     {(item.inStock) && <>
-                                        <div className='bg-red-500 flex flex-row justify-center text-3xl'>
-                                            <p className="align-middle">Available: {item.amount-item.loaned}</p>
-                                            <img src={Check} alt='Available' className={listStyle.svgStyle}/>
-                                            
+                                        <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
+                                            <div className="items-center grid mr-5">
+                                                <p className="align-middle">Available: {item.amount-item.loaned}</p>
+                                            </div>
+                                            <div className="items-center grid">
+                                                <BsCheckLg color='green' />
+                                            </div>
                                         </div>
                                         <div className="flex justify-center">
                                             <p>Loaned: {item.loaned}</p> 
@@ -199,9 +271,13 @@ const listStyle: ListStyle = {
                                     </>}
                                     {/*If there are items in stock*/}
                                     {!(item.inStock) && 
-                                    <div className='flex flex-row bg-red-500 flex flex-row justify-center text-3xl'>
-                                        <p>Out of stock</p>
-                                        <img src={Cross} alt='Not available' className={listStyle.svgStyle}/>
+                                    <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
+                                        <div className="items-center grid mr-5">
+                                            <p>Out of stock</p>
+                                        </div>
+                                        <div className="items-center grid">
+                                            <TiTimes color='red'/>
+                                        </div>
                                     </div>}
                                     
                                 </div>
