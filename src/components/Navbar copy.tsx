@@ -8,12 +8,17 @@ import {ImBooks} from 'react-icons/im';
 
   const Navbar = () =>{
     return(
+      
+      // Here is the main component of the navbar
       <div className="bg-adminSidebar  w-[22vw] xl:w-[16vw] h-[auto] top-[15%] bottom-[15%] left-[2vw] fixed items-center grid justify-center rounded-2xl overflow-hidden">
+        {/* Here is the icon, positioning (of) and admin */}
         <div className="grid place-items-center mb-3 pb-2">
           <label className="pt-9"><BiUserCircle color='white'size={'3rem'}/></label>
-          <h1 className="text-zinc-50  pt-2 pb-2">Admin</h1> 
+             <h1 className="text-zinc-50  pt-2 pb-2">Admin</h1> 
         </div>
+        {/* Here is the line dividing the other links */}
         <hr className= "w-[80%] mx-auto" />
+        {/* Here is the icon, positioning (of) and dashboard */}
         <div className="place-items-center w-[19vw]">  
             <a href="" className="w-[100%]">
               <div className="sidebar-options w-[full]">
@@ -24,16 +29,20 @@ import {ImBooks} from 'react-icons/im';
                 </p>
               </div>
             </a>
-
-            <a href="" className="w-[100%]">
+        {/* Here is the icon, positioning (of) and members */}
+          <div>
+            {/* Will be attempting to add a dropdown */}
+            <button className="w-[100%]">
               <div className="sidebar-options">
                 <label className=""><FiUsers color='white'size={'3rem'}/></label>
                     <p className="sidebar-text">
                       Members
                     </p>
-              </div>
-            </a>
-
+              </div> 
+           </button>
+          </div>
+            
+        {/* Here is the icon, positioning (of) and books */}  
             <a href="" className="w-[100%]">
               <div className="sidebar-options">
                 <label className=""><ImBooks color='white'size={'3rem'}/></label>
@@ -43,26 +52,19 @@ import {ImBooks} from 'react-icons/im';
               </div>
             </a>
 
+            
+        {/* Here is the icon, positioning (of) and NOT returned */}
             <a href="" className="w-[100%]">
-            <div className="sidebar-options">
-            <label className=""><SiBookstack color='white'size={'3rem'}/></label>
-                <p className="sidebar-text">
-                Returned
-                </p>
-            </div>
-            </a>
-
-            <a href="" className="w-[100%]">
-            <div className="sidebar-options">
-            <label className=""><RiErrorWarningLine color='white'size={'3rem'}/></label>
-                <p className="sidebar-text">
-                Not Returned
-                </p>
-            </div>
+               <div className="sidebar-options">
+                 <label className=""><RiErrorWarningLine color='white'size={'3rem'}/></label>
+                    <p className="sidebar-text">
+                      Not Returned
+                   </p>
+             </div>
             </a>
         </div>
-       
       </div>
+      
     )
   }
   export default Navbar;
