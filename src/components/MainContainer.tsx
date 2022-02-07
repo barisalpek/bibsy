@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import List from './List';
+//import Buttons from './Buttons';
 
 type typeOfPage = {
     page: string;
@@ -45,7 +46,7 @@ const MainContainer = (props: typeOfPage) => {
         {!isMain && 
             <div className='h-[100%] w-[100%]'>
                 <div className='h-[10%] bg-blue-600 mb-10'>
-
+                    {/*<Buttons />*/}
                 </div>
                 <div className='h-[80%]'>
                     <List mainColor='grön' listColor='ljusGrön' typeOf='book' />
