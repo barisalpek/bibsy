@@ -58,12 +58,12 @@ const MainContainer = (props: typeOfPage) => {
             
             <div className='h-[100%] w-[100%] flex  flex-row'>
                 {isAdmin && <Navbar/>}
-                <div className='w-full h-[100%] flex flex-col  space-y-[10%]'>
-                    <div className='h-[20%] bg-blue-600 '>
+                <div className='w-full h-[100%] flex border-red-500 border-2 flex-col content-between'>
+                    <div className='h-[10%] mb-[3%] bg-blue-600 '>
                         {/*<Buttons />*/}
                     </div>
                     
-                    <div className='h-[80%] w-full'>
+                    <div className='h-[85%] w-full'>
                         <List mainColor='grön' listColor='ljusGrön' typeOf='book' bookType="available"/>
                     </div>    
                 </div> 

@@ -43,7 +43,7 @@ const listStyle: ListStyle = {
     theadStyle: 'flex flex-row items-center bg-lila h-[10%] text-3xl text-left text-white rounded-t-2xl pl-5',
     trStyle: 'w-full h-auto odd:bg-white even:bg-ljusLila p-5 flex flex-row',
     tdStyle: 'p-3',
-    imgStyle: 'w-[20%] h-auto',
+    imgStyle: 'w-[10%] h-auto',
     svgStyle: 'h-[100%] ml-5',
 }
     //Data from db to useState
@@ -129,7 +129,7 @@ const listStyle: ListStyle = {
                     {/*Loops through each book fetched from the db*/}
                     {data.map((item: Book, index: Number) => {
                         return (
-                            <div className={`w-[100%] h-auto odd:bg-white even:bg-ljusGul p-5 flex flex-row`} key={String(index)}>
+                            <div className={`w-[100%] odd:bg-white even:bg-ljusGul p-5 flex flex-row justify-between`} key={String(index)}>
                                 <div className={listStyle.imgStyle}>
                                     <img src={'https://image.bokus.com/images/'+ item.isbn} alt={'Omslag till boken '+item.title} />
                                 </div>
