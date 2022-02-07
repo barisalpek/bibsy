@@ -10,11 +10,10 @@ const Main =()=> {
     return (
 
      <div className='flex justify-center content-center h-screen touch-none'>
-        {/* <Theme/> */}
-        {/* <MainContainer page='list'/> */}
+        <Theme/>
+        <MainContainer page='list' isAdmin={true}/>
         {/* <SignInWidget/> */}
         {/* <SignInMobile/> */}
-        {/* <Navbar/> */}
      </div>
     );
 }
