@@ -1,0 +1,332 @@
+{
+    "books": [
+        {
+        "title": "Metro 2033",
+        "author": "Dmitry Glukhovsky",
+        "published": "2020",
+        "isbn": "9789187219696",
+        "amount": 12,
+        "loaned": 7,
+        "inStock": true
+    },
+    {
+        "title": "Metro 2034",
+        "author": "Dmitry Glukhovsky",
+        "published": "2012",
+        "isbn": "9789186437664",
+        "amount": 12,
+        "loaned": 4,
+        "inStock": true
+    },
+    {
+        "title": "Metro 2035",
+        "author": "Dmitry Glukhovsky",
+        "published": "2018",
+        "isbn": "9789187891830",
+        "amount": 3,
+        "loaned": 3,
+        "inStock": false
+    },
+    {
+        "title": "Hello, Android",
+        "author": "Ed Burnette",
+        "published": "2015",
+        "isbn": "9781680500370",
+        "amount": 3,
+        "loaned": 3,
+        "inStock": false
+    },
+
+        {
+        "title": "JAVASCRIPT&JQUERY",
+        "author": "Jon Ducket",
+        "published": "2014",
+        "isbn": "9781118531648",
+        "amount": 3,
+        "loaned": 3,
+        "inStock": false
+    },
+
+    {
+        "title": "Programmering 1 Python",
+        "author": "Jan Sundström",
+        "published": "2016",
+        "isbn": "9789173793452",
+        "amount": 3,
+        "loaned": 3,
+        "inStock": false
+    },
+
+    {
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "published": "2009",
+        "isbn": "9780132350882",
+        "amount": 3,
+        "loaned": 3,
+        "inStock": false
+    },
+    {
+        "title": "Databas-Teknik",
+        "author": "Thomas Padron",
+        "published": "2018",
+        "isbn": "9789144069197",
+        "amount": 3,
+        "loaned": 3,
+        "inStock": false
+    },
+
+        {
+        "title": "Web development with Node and Express",
+        "author": "Ethan Brown",
+        "published": "2019",
+        "isbn": "9781492053514",
+        "amount": 3,
+        "loaned": 3,
+        "inStock": false
+    }
+],
+    "members": [
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        },
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        },
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        },
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        },
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        }
+        ,
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        }
+        ,
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        }
+        ,
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        },
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        },
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        },
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        },
+        {
+            "name": "Dejan Dacic",
+            "group": "2021 TE4",
+            "email": "dejan.dacic@elev.ga.ntig.se",
+            "img": "dejan.png",
+            "phone": "1234567890",
+            "loanedBooks": [
+                "Metro",
+                "Metro2",
+                "Metro3"
+            ]
+        }
+    ],
+    "missing": [
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        },
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        },
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        },
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        },
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        }
+    ],
+    "borrowed": [
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        },
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        },
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        },
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        },
+        {
+            "title": "Metro 2034",
+            "author": "Dmitry Glukhovsky",
+            "published": "2012",
+            "isbn": "9789186437664",
+            "dateOfLoan": "12/4/20",
+            "returnDate": "12/4/21",
+            "person": "Dejan Dacic"
+        }
+    ]
+}

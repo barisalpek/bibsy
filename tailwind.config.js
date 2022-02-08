@@ -12,7 +12,7 @@ module.exports = {
         "pp":"#250039",
         "btnpinkky":"#E5627A",
 
-        'ljusLila': 'rgba(172, 53, 214, 0.1)',
+        'ljusLila': '#F7EBFB',
         'lila': '#AC35D6',
         'mörkLila': '#541A69',
         'ljusGrön': '#F3F8EA',
