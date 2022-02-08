@@ -5,22 +5,73 @@
 
 @layer components{
 
-     .sidebar-options {
-        @apply  flex
-                items-center
-                text-center 
-                justify-center 
-                pt-5 pb-5
-                 text-zinc-50 
-                 hover:bg-purple-800 
-                 w-full;
-     }
 
-     .sidebar-text{
-        @apply  w-[50%] 
-                hidden 
-                md:block;
+        /*Sidebar*/
+          .sidebar-options {
+             @apply flex
+                    items-center
+                    text-center 
+                    justify-center 
+                    pt-5 pb-5
+                     text-zinc-50 
+                     hover:bg-purple-800 
+                    w-full
+          }
+     
+          .sidebar-text{
+             @apply w-[50%] 
+                    hidden 
+                    md:block
+          }
+     
+          /*main navbar*/
+          .navbar-options {
+             @apply w-[90%]
+                    h-[100%] 
+                    rounded-2xl
+                    m-2
+                    flex
+                    items-center
+                    text-center 
+                    justify-center 
+          }
+     
+     
+          .link {
+             @apply w-[25%]
+                    h-[80%]
+          }
+          
+     
+     
+          .main-sidebar-text{
+              @apply w-[60%] 
+                    hidden 
+                    md:block
+                    text-xl
+                    text-white
+        }
+     
+        .Button-options {
+              @apply w-[100%]
+                    h-[35%] 
+                    rounded-2xl
+                    m-5
+                    flex
+                    items-center
+                    text-center 
+                    justify-center 
+                    mt-16
      }
      
-    
-}
+     
+        .bookInput {
+           @apply m-5
+                  w-[42%]
+                  p-[1%]
+                  rounded-xl
+        }
+     
+         
+     }
+     
