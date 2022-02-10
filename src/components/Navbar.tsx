@@ -10,7 +10,7 @@ import {ImBooks} from 'react-icons/im';
     return(
       
       // Here is the main component of the navbar
-      <div className="bg-adminSidebar  w-[30vw] xl:w-[16vw] xl:p-[2vw] h-[100%] mr-[5%] items-center grid justify-center rounded-2xl overflow-hidden">
+      <div className="bg-adminSidebar  w-[2vw] xl:w-[16vw] xl:p-[2vw] h-[100%] mr-[5%] items-center grid justify-center rounded-2xl overflow-hidden">
         {/* Here is the icon, positioning (of) and admin */}
         <div className="grid place-items-center mb-3 pb-2">
           <label className="pt-9"><BiUserCircle color='white'size={'3rem'}/></label>

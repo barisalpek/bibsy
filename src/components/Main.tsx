@@ -6,6 +6,7 @@ import MainContainer from './MainContainer';
 import MainNavbar from './MainNavbar';
 import Navbar from './Navbarv2';
 import RegisterBook from './RegisterBook';
+import ReturnAndBorrow from './ReturnAndBorrow';
 
 
 const Main =()=> {
@@ -16,8 +17,8 @@ const Main =()=> {
         {/* <MainContainer page='list'/> */}
         <MainNavbar isBig={false} />
         <Navbar/> 
-        <RegisterBook />
-
+        <RegisterBook isMember={true} isActive={true}/>
+        <ReturnAndBorrow isReturn={true} isActive={false}/> 
      </div>
     );
 }
