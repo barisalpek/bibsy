@@ -11,7 +11,7 @@ const Main =()=> {
 
      <div className='flex justify-center content-center h-screen touch-none'>
         <Theme/>
-        <MainContainer page='list' isAdmin={true}/>
+        <MainContainer isAdmin={true}/>
         {/* <SignInWidget/> */}
         {/* <SignInMobile/> */}
      </div>
