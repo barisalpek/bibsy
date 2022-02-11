@@ -82,7 +82,8 @@
 
 
             {/*SMALL BUTTONS*/}
-            {!props.isBig && <div className=" h-[15vh] xl:w-[70vw] fixed right-[1%] top-[2%] items-start flex justify-center rounded-xl overflow-hidden">
+            {!props.isBig && 
+            <div className=" h-[15vh] xl:w-[70vw] fixed right-[1%] top-[1%] items-start flex justify-center rounded-xl overflow-hidden">
             <a href=""className="link ">
                 <div className="navbar-options active:bg-blue-700 bg-blue-500 mx-auto">
                     <label className=""><RiDashboardLine color='white'size={'3rem'}/></label>
