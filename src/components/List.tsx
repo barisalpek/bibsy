@@ -97,9 +97,9 @@ const listStyle: ListStyle = {
                 </div>
                 <div className="h-[90%] overflow-y-auto rounded-2xl">
                     {/*Loops through each person that was fetched from the db*/}
-                    {data.map((item: Person) => {
+                    {data.map((item: Person, index:Number) => {
                         return (
-                        <div className={listStyle.trStyle}>
+                        <div className={listStyle.trStyle} key={index.toString()}>
                             <div className={listStyle.tdStyle}>
                                 {item.name}
                             </div>
@@ -133,7 +133,45 @@ const listStyle: ListStyle = {
                                 <div className={listStyle.imgStyle}>
                                     <img src={'https://image.bokus.com/images/'+ item.isbn} alt={'Omslag till boken '+item.title} />
                                 </div>
-                                {isAvailable && <><div className="p-3 w-[60%]">
+                                {isAvailable && <>
+                                    <div className="p-3 w-[60%]">
+                                        <h4 className="p-2 font-bold">Title: {item.title}</h4>
+                                        <h4 className="p-2">Author: {item.author}</h4>
+                                        <h4 className="p-2">Published: {item.published}</h4>
+                                        <h4 className="p-2">Amount: {item.amount}</h4>
+                                    </div>
+                                    <div className="flex flex-col justify-center align-center w-[30%]">
+                                        
+                                        {/*If there are items in stock*/}
+                                        {(item.inStock) && <>
+                                            <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
+                                                <div className="items-center grid mr-5">
+                                                    <p className="align-middle">Available: {item.amount-item.loaned}</p>
+                                                </div>
+                                                <div className="items-center grid">
+                                                    <BsCheckLg color='green' />
+                                                </div>
+                                            </div>
+                                            <div className="flex justify-center">
+                                                <p>Loaned: {item.loaned}</p> 
+                                            </div>
+                                        </>}
+                                        {/*If there are items in stock*/}
+                                        {!(item.inStock) && 
+                                        <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
+                                            <div className="items-center grid mr-5">
+                                                <p>Out of stock</p>
+                                            </div>
+                                            <div className="items-center grid">
+                                                <TiTimes color='red'/>
+                                            </div>
+                                        </div>}
+                                        
+                                    </div>
+                                </>}
+                                
+                                {/*Borrowed books*/}
+                                {!isAvailable && <><div className="p-3 w-[60%]">
                                     <h4 className="p-2 font-bold">Title: {item.title}</h4>
                                     <h4 className="p-2">Author: {item.author}</h4>
                                     <h4 className="p-2">Published: {item.published}</h4>

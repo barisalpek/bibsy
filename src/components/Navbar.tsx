@@ -5,8 +5,9 @@ import {SiBookstack} from 'react-icons/si'
 import {RiErrorWarningLine} from 'react-icons/ri';
 import {RiDashboardLine} from 'react-icons/ri';
 import {ImBooks} from 'react-icons/im';
+import { Link, NavLink } from 'react-router-dom';
 
-  const Navbar = () =>{
+  const Navbar = (props:any) =>{
     return(
       
       // Here is the main component of the navbar
@@ -20,7 +21,7 @@ import {ImBooks} from 'react-icons/im';
         <hr className= "w-[80%] mx-auto" />
         {/* Here is the icon, positioning (of) and dashboard */}
         <div className="place-items-center w-[19vw]">  
-            <a href="" className="w-[100%]">
+            <NavLink to="/" className="w-[100%]">
               <div className="sidebar-options w-[full]">
                 <label className=""><RiDashboardLine color='white'size={'3rem'}/>
                 </label>
@@ -28,43 +29,41 @@ import {ImBooks} from 'react-icons/im';
                   Dashboard
                 </p>
               </div>
-            </a>
+            </NavLink>
         {/* Here is the icon, positioning (of) and members */}
-          <div>
+          
             {/* Will be attempting to add a dropdown */}
-            <button className="w-[100%]">
+            <NavLink to="/memberList" className="w-[100%]">
               <div className="sidebar-options">
                 <label className=""><FiUsers color='white'size={'3rem'}/></label>
                     <p className="sidebar-text">
                       Members
                     </p>
               </div> 
-           </button>
-          </div>
+           </NavLink>
             
         {/* Here is the icon, positioning (of) and books */}  
-            <a href="" className="w-[100%]">
+            <NavLink to="/bookList" className="w-[100%]">
               <div className="sidebar-options">
                 <label className=""><ImBooks color='white'size={'3rem'}/></label>
                     <p className="sidebar-text">
                       Books
                     </p>
               </div>
-            </a>
-
+            </NavLink>
             
         {/* Here is the icon, positioning (of) and NOT returned */}
-            <a href="" className="w-[100%]">
+            <NavLink to="/loanedList" className="w-[100%]">
                <div className="sidebar-options">
                  <label className=""><RiErrorWarningLine color='white'size={'3rem'}/></label>
                     <p className="sidebar-text">
                       Not Returned
                    </p>
              </div>
-            </a>
+            </NavLink>
         </div>
       </div>
-      
+
     )
   }
   export default Navbar;

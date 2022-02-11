@@ -1,10 +1,9 @@
-
 import React, {useState} from "react";
-
-const ReturnAndBorrow = (props : any) => {
+const ReturnAndBorrow = () => {
     const [id, setId] = useState<string>("");
     const [isbn, setIsbn] = useState<any>("");
     const [hasIsbn, setHasIsbn] = useState<boolean | null>(null);
+
 
 
 return( 
@@ -67,7 +66,6 @@ return(
                             <div className="rounded px-8 pb-2 mb-4 mt-20 grid justify-items-center">
                                 
                                 <h1 className="text-3xl">Låna bok</h1>
-
                                 <div className="text-center">
                                 <div className="text-black font-bold flex flex-start mb-10">
                                     <span>
@@ -107,13 +105,11 @@ return(
                             </div>
                         </div>     
                     </div>
-                }</> } 
-                
+                }</> }  
                 {!props.isActive && 
                 <>
                 </>
                 }
-                
                 </>);
                                     }
 export default ReturnAndBorrow;

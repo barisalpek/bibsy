@@ -22,6 +22,8 @@ module.exports = {
         'gul': '#D6B235',
         'mörkGul': '#897222',
         'adminSidebar': '#1F102B',
+        'röd': '#B52B33',
+        'ljusRöd': '#F9E9EB'
       }
     },
   },
