@@ -7,7 +7,7 @@ import {RiDashboardLine} from 'react-icons/ri';
 import {ImBooks} from 'react-icons/im';
 
 
-  const Navbar = () =>{
+  const NavbarL = () =>{
     return(
       <div className="bg-adminSidebar w-60 h-[auto] top-[10%] bottom-[10%] left-[2vw] fixed items-center grid justify-center rounded-2xl overflow-hidden">
         <div className="grid place-items-center mb-3 pb-2">
@@ -69,4 +69,4 @@ import {ImBooks} from 'react-icons/im';
       </div>
     )
   }
-  export default Navbar;
+  export default NavbarL;
