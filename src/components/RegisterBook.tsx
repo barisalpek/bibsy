@@ -6,6 +6,7 @@ import UseAxios from './UseAxios'
 
  const RegisterBook = (props : any) => {
 
+    //Lagrar dess informationen som state
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [eMail, setEmail] = useState('');
@@ -19,7 +20,7 @@ import UseAxios from './UseAxios'
     const [ISBN, setISBN] = useState('');
 
     
-
+    //Skickar koden till backend med hjälp av Axios, den skickar allt genom en objekt namn
     const submitFormBook = (event: React.FormEvent<HTMLFormElement>) => {
       // Preventing the page from reloading
       event.preventDefault();
@@ -50,15 +51,18 @@ import UseAxios from './UseAxios'
     }
 
     return (
-    <>
-    {props.isActive && 
+    
                 <>
         {/* Register member */}
         {props.isMember && 
             <div className=" bg-white h-[75vh] w-[70vw] fixed right-[10%] top-[15%] items-center flex rounded-xl overflow-hidden">
+                    {/* När formens butten submit tryckes med hjälp av onSubmit körs funktionen submitFormStudent */}
                 <form className="w-[100%] h-[100%] ml-[6%] " onSubmit={submitFormStudent}>
+
                     <h1 className=" text-3xl text-center p-10  mt-[5%] mr-[5%] -z-10" >Registrera medlem</h1>
+
                     <div className="mt-[2%] -z-10">
+                            {/* Ger inputen ett värde och sedan lagrar den till useState */}
                         <input className="bookInput border-solid border-2 border-indigo-600" type="text"    placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
 
                         <input className="bookInput border-solid border-2 border-indigo-600" type="text"    placeholder="Last Name"  value={lastName} onChange={(e) => setLastName(e.target.value)}/>
@@ -76,19 +80,21 @@ import UseAxios from './UseAxios'
         {!props.isMember && 
             <div className=" bg-purple-100 h-[75vh] w-[75vw] fixed right-[3%] top-[15%] items-center flex rounded-xl overflow-hidden">
 
+                {/* När formens butten submit tryckes med hjälp av onSubmit körs funktionen submitFormBook */}
             <form className="w-[60%] h-[100%]" onSubmit={submitFormBook}>
 
                 <img src="/../assets/frown-regular.svg" alt="" />
 
                     <h1 className=" text-3xl p-10 ml-[25%] mt-[5%]" >Registrera din bok</h1>
                         
-                        <input className="bookInput" type="text" placeholder="Book Title"            value={bookName} onChange={(e) => setBookName(e.target.value)}/>
+                            {/* ger inputen ett värde och sedan lagrar den till useState */}
+                        <input className="bookInput" type="text" placeholder="Book Title"   value={bookName} onChange={(e) => setBookName(e.target.value)}/>
                         
-                        <input className="bookInput" type="text" placeholder="Published"        value={publishdate} onChange={(e) => setPublishdate(e.target.value)}/>
+                        <input className="bookInput" type="text" placeholder="Published"    value={publishdate} onChange={(e) => setPublishdate(e.target.value)}/>
 
-                        <input className="bookInput" type="text" placeholder="Author"                value={author} onChange={(e) => setAuthor(e.target.value)}/>
+                        <input className="bookInput" type="text" placeholder="Author"       value={author} onChange={(e) => setAuthor(e.target.value)}/>
 
-                        <input className="bookInput" type="text" placeholder="Quantity"  value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
+                        <input className="bookInput" type="text" placeholder="Quantity"     value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
 
                     
                     <input className="m-5 mt-[3%] mb-[10%] w-[66%] p-[1%] rounded-xl" type="text" placeholder="ISBN-Nummer" name="ISBN-Nr" value={ISBN} onChange={(e) => setISBN(e.target.value)}/>
@@ -99,18 +105,10 @@ import UseAxios from './UseAxios'
                 <div className="w-[40%] h-[100%]  ">
                     <h1 className=" text-3xl ml-[35%] mt-[10%]">Bok Namn</h1>
                     <div className="bg-cyan-700 rounded-xl w-[70%] h-[70%] ml-[15%] mt-[5%]">
-
                     </div>
                 </div>
             </div>
         }
-    </>} 
-                
-                {!props.isActive && 
-                <>
-                </>
-                }
-                
                 </>) };
 
  

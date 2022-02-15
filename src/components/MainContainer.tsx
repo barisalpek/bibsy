@@ -15,7 +15,6 @@ type Prop = {
 }
 
 const MainContainer = (props: Prop) => {
-
     
     const [navStyle, setNavStyle] = useState<string>('');
     const [bodyStyle, setBodyStyle] = useState<string>('');
@@ -32,81 +31,82 @@ const MainContainer = (props: Prop) => {
     <Router>
         <div className="h-[90%] w-5/6 my-auto -z-[0] flex flex-row">
         
-    {isAdmin && <Navbar/>}
+        {isAdmin && <Navbar/>}
 
-        <Routes>
+            <Routes>
 
-            <Route path="/" element={(
-                <>
-                <div className='h-[100%] w-[100%] bg-white rounded-2xl'>
-                        {/*  */}
-                            <div>
-                        {!isAdmin && <div></div>}
+                <Route path="/" element={(
+                    <>
+                    <div className='h-[100%] w-[100%] bg-white rounded-2xl'>
+                            {/*  */}
+                                <div>
+                            {!isAdmin && <div></div>}
+                        </div>
+                        <div>
+                        {/* <MainNavbar */} 
+                        </div>     
                     </div>
-                    <div>
-                    {/* <MainNavbar */} 
-                    </div>     
-                </div>
-                </>
-            )}/> 
+                    </>
+                )}/> 
 
-            <Route path="/loanOutBaby" element={(
+                <Route path="/loanOutBaby" element={(
 
-                <ReturnAndBorrow/>
+                    <ReturnAndBorrow/>
 
-            )}/>
+                )}/>
 
-            <Route path="/memberList" element={(
-                <>
+                <Route path="/memberList" element={(
+                    <>
+                        <div className='h-[100%] w-[100%] flex  flex-row -z-[1]'>
+                            <div className='w-full h-[100%] flex border-red-500 border-2 flex-col content-between'>
+                                <div className='h-[10%] mb-[3%] bg-blue-600 '>
+                                    {/*<Buttons />*/}
+                                </div>
+                            
+                                <div className='h-[85%] w-full'>
+                                    <List mainColor='lila' listColor='ljusLila' typeOf='member' bookType="available"/>
+                                </div>
+                            </div> 
+                        </div>
+                    </>
+                )}/> 
+
+                <Route path="/bookList" element={(
+                    <>
                     <div className='h-[100%] w-[100%] flex  flex-row'>
-                        <div className='w-full h-[100%] flex border-red-500 border-2 flex-col content-between'>
-                            <div className='h-[10%] mb-[3%] bg-blue-600 '>
-                                {/*<Buttons />*/}
-                            </div>
-                        
-                            <div className='h-[85%] w-full'>
-                                <List mainColor='lila' listColor='ljusLila' typeOf='member' bookType="available"/>
-                            </div>
-                        </div> 
-                    </div>
-                </>
-            )}/> 
+                            <div className='w-full h-[100%] flex border-red-500 border-2 flex-col content-between'>
+                                <div className='h-[10%] mb-[3%] bg-blue-600 '>
+                                    {/*<Buttons />*/}
+                                </div>
+                            
+                                <div className='h-[85%] w-full'>
+                                    <></>
+                                    
+                                    <List mainColor='grön' listColor='ljusGrön' typeOf='book' bookType="available"/>
+                                </div>
+                            </div> 
+                        </div>
+                    </>
+                )}/>
 
-            <Route path="/bookList" element={(
-                <>
-                <div className='h-[100%] w-[100%] flex  flex-row'>
-                        <div className='w-full h-[100%] flex border-red-500 border-2 flex-col content-between'>
-                            <div className='h-[10%] mb-[3%] bg-blue-600 '>
-                                {/*<Buttons />*/}
-                            </div>
-                        
-                            <div className='h-[85%] w-full'>
-                                <></>
-                                <List mainColor='grön' listColor='ljusGrön' typeOf='book' bookType="available"/>
-                            </div>
-                        </div> 
-                    </div>
-                </>
-            )}/>
-
-            <Route path="/loanedList" element={(
-                <>
-                <div className='h-[100%] w-[100%] flex  flex-row'>
-                        <div className='w-full h-[100%] flex border-red-500 border-2 flex-col content-between'>
-                            <div className='h-[10%] mb-[3%] bg-blue-600 '>
-                                {/*<Buttons />*/}
-                            </div>
-                        
-                            <div className='h-[85%] w-full'>
-                                <></>
-                                <List mainColor='röd' listColor='ljusRöd' typeOf='missing' bookType="borrowed"/>
-                            </div>
-                        </div> 
-                    </div>
-                </>
-            )}/>
-            
-        </Routes>
+                <Route path="/loanedList" element={(
+                    <>
+                    <div className='h-[100%] w-[100%] flex  flex-row'>
+                            <div className='w-full h-[100%] flex border-red-500 border-2 flex-col content-between'>
+                                <div className='h-[10%] mb-[3%] bg-blue-600 '>
+                                    {/*<Buttons />*/}
+                                </div>
+                            
+                                <div className='h-[85%] w-full'>
+                                    <></>
+                                    <List mainColor='röd' listColor='ljusRöd' typeOf='missing' bookType="borrowed"/>
+                                </div>
+                            </div> 
+                        </div>
+                    </>
+                )}/>
+                
+            </Routes>
         
         </div>
     </Router>
