@@ -53,7 +53,7 @@ const SignInMobile = () => {
                     </label>
                 </div>
 
-                <div className="grid">
+                <div className="grid ">
                     <button
                         type="submit"
                         className="bg-pink-600 border-none text-white mt-10 mb-10 p-2 w-[60%] m-auto rounded-full "
