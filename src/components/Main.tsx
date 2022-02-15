@@ -4,7 +4,7 @@ import Theme from './Theme';
 import SignInWidget from './SignIn_Widget';
 import MainContainer from './MainContainer';
 import MainNavbar from './MainNavbar';
-import Navbar from './Navbarv2';
+import NavbarV2 from './Navbarv2';
 import RegisterBook from './RegisterBook';
 import ReturnAndBorrow from './ReturnAndBorrow';
 import DocumentMeta from "react-document-meta";
@@ -28,9 +28,10 @@ const Main =()=> {
         <DocumentMeta {...meta} />
         {/* <MainContainer page='list'/> */}
         <MainNavbar isBig={false} />
-        <Navbar/> 
-        <RegisterBook isMember={true} isActive={true}/>
-        <ReturnAndBorrow isReturn={true} isActive={false}/> 
+        <NavbarV2/> 
+        <RegisterBook isMember={false} isActive={true}/>
+        <ReturnAndBorrow isReturn={false} isActive={false}/> 
+
         {/* <MainContainer isAdmin={true}/> */}
         {/* <SignInWidget/> */}
         {/* <SignInMobile/> */}
