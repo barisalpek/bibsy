@@ -53,6 +53,7 @@ const listStyle: ListStyle = {
 
     const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
 
+    //Runs only on first update
     useEffect(() => {
         //fetching data
         getData("http://localhost:3001/" + props.typeOf + "s")
@@ -61,7 +62,7 @@ const listStyle: ListStyle = {
         });
 
         //setData(books);
-        //Determen what is passed in through props
+        //Determine what is passed in through props
         if (props.typeOf === 'member') {
             setIsMemberType(true);
         }
@@ -85,7 +86,7 @@ const listStyle: ListStyle = {
     }, []);
 
     return (
-        <div className="h-[100%] w-[100%] rounded">
+        <div className="h-[100%] w-[100%] rounded -z-[1]">
             {/*Conditional rendering, only renders if the passed in prop is 'member'*/}
             {isMemberType && <div className="h-[100%] w-[100%] bg-white rounded-2xl">
                 <div className={listStyle.theadStyle}>
@@ -97,7 +98,7 @@ const listStyle: ListStyle = {
                 </div>
                 <div className="h-[90%] overflow-y-auto rounded-2xl">
                     {/*Loops through each person that was fetched from the db*/}
-                    {data.map((item: Person, index:Number) => {
+                    {data.map((item: Person, index: Number) => {
                         return (
                         <div className={listStyle.trStyle} key={index.toString()}>
                             <div className={listStyle.tdStyle}>
@@ -207,7 +208,6 @@ const listStyle: ListStyle = {
                                     </div>
                                 </>}
 
-                                
                             </div>
                         )
                     })}

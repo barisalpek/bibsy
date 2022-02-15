@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* these dont really work, idk */
 
 @layer components{
 
@@ -72,6 +73,20 @@
                   rounded-xl
         }
      
+        .SignIn-div{
+           @apply
+           flex
+           items-center
+           bg-transparent
+          text-white
+            border-2
+          border-white
+            border-r-0
+            border-l-0
+            border-t-0
+            mb-6
+            pb-2 
+        }
          
      }
      
