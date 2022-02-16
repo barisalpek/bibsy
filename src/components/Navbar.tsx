@@ -12,7 +12,7 @@ const Navbar = () => {
   return(
 
     // Here is the main component of the navbar
-    <div className="bg-adminSidebar  w-[2vw] xl:w-[16vw] xl:p-[2vw] h-[100%] mr-[5%] items-center grid justify-center rounded-2xl overflow-hidden z-10">
+    <div className="bg-adminSidebar  w-[2vw] xl:w-[16vw] xl:p-[2vw] h-[100%] items-center grid justify-center rounded-l-2xl overflow-hidden z-10">
 
       {/* Here is the icon, positioning (of) and admin */}
         <div className="grid place-items-center mb-3 pb-2">
@@ -25,7 +25,7 @@ const Navbar = () => {
 
       {/* Here is the icon, positioning (of) and dashboard */}
       <div className="place-items-center w-[19vw]">  
-        <NavLink to="/" className="w-[100%]">
+        <NavLink to="/dashboard" className="w-[100%]">
           <div className="sidebar-options w-[full]">
             <label className=""><RiDashboardLine color='white'size={'3rem'}/>
             </label>
@@ -61,7 +61,7 @@ const Navbar = () => {
           <div className="sidebar-options">
             <label className=""><RiErrorWarningLine color='white'size={'3rem'}/></label>
               <p className="sidebar-text">
-                Not Returned
+                Missing
               </p>
           </div>
         </NavLink>

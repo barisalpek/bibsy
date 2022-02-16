@@ -2,6 +2,7 @@ import React, { useEffect,  useState } from "react";
 import {BsCheckLg} from 'react-icons/bs';
 import {TiTimes} from 'react-icons/ti';
 import getData from "./getData";
+import { Link,  } from 'react-router-dom';
 
 type Props = {
     mainColor: string;
@@ -11,12 +12,21 @@ type Props = {
   }
 
   type Student = {
-    name: string;
-    group: string;
-    email: string;
-    img: string;
-    phone: string;
-    loanedBooks: [Book, Book, Book];
+    ID: number;
+    PID: string;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    PhoneNumber: string;
+}
+
+type Staff = {
+    ID: number;
+    PID: string;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    PhoneNumber: string;
 }
 
 type Book  = {
@@ -40,9 +50,9 @@ type ListStyle = {
 const List = (props: Props) => {
 
 const listStyle: ListStyle = {
-    theadStyle: 'flex flex-row items-center bg-lila h-[10%] text-3xl text-left text-white rounded-t-2xl pl-5',
-    trStyle: 'w-full h-auto odd:bg-white even:bg-ljusLila p-5 flex flex-row',
-    tdStyle: 'p-3',
+    theadStyle: 'flex flex-row items-center h-[10%] text-3xl text-left text-white rounded-t-2xl ',
+    trStyle: 'w-full h-auto odd:bg-white even:bg-ljusLila p-5 flex space-x-52 flex-row',
+    tdStyle: 'p-3 mx-auto w-[10%]',
     imgStyle: 'w-[10%] h-auto',
     svgStyle: 'h-[100%] ml-5',
 }
@@ -62,6 +72,7 @@ const listStyle: ListStyle = {
         getData("http://localhost:3001/" + props.request)
         .then((res) => {
             setData(res);
+            console.log(res);
         });
 
         //setData(books);
@@ -121,60 +132,54 @@ const listStyle: ListStyle = {
         <div className="h-[100%] w-[100%] rounded -z-[1]">
             {isStaff && <><div className="h-[100%] w-[100%] bg-white rounded-2xl">
                 <div className={listStyle.theadStyle}>
-                    <div className={listStyle.tdStyle}>Name</div>
-                    <div className={listStyle.tdStyle}>Email</div>
-                    <div className={listStyle.tdStyle}>Phone</div>
-                    <div className={listStyle.tdStyle}>Books</div>
+                    <div className="w-[100%] h-[100%] bg-lila rounded-t-2xl flex flex-row">
+                        <div className={listStyle.tdStyle}>Name</div>
+                        <div className={listStyle.tdStyle}>Email</div>
+                        <div className={listStyle.tdStyle}>Phone</div>
+                    </div>
                 </div>
                 <div className="h-[90%] overflow-y-auto rounded-2xl">
                     {/*Loops through each person that was fetched from the db*/}
-                    {data.map((item: Student, index: Number) => {
+                    {data.map((item: Staff, index: Number) => {
                         return (
                         <div className={listStyle.trStyle} key={index.toString()}>
-                            <div className={listStyle.tdStyle}>
-                                {item.name}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.email}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.phone}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.loanedBooks.length}
-                            </div>
+                            <Link to={"/detailsStaff/staff/" + item.ID} className={listStyle.tdStyle}>
+                                {item.FirstName + " " + item.LastName}
+                            </Link>
+                            <Link to={"/detailsStaff/staff/" + item.ID} className={listStyle.tdStyle}>
+                                {item.Email}
+                            </Link>
+                            <Link to={"/detailsStaff/staff/" + item.ID} className={listStyle.tdStyle}>
+                                {item.PhoneNumber}
+                            </Link>
                         </div>)
                     })}
                 </div>
             </div></>}
             {isStudents && <><div className="h-[100%] w-[100%] bg-white rounded-2xl">
                 <div className={listStyle.theadStyle}>
-                    <div className={listStyle.tdStyle}>Name</div>
-                    <div className={listStyle.tdStyle}>Class</div>
-                    <div className={listStyle.tdStyle}>Email</div>
-                    <div className={listStyle.tdStyle}>Phone</div>
-                    <div className={listStyle.tdStyle}>Books</div>
+                    <div className="w-[100%] h-[100%] bg-rosa rounded-t-2xl flex flex-row">
+                        <div className={listStyle.tdStyle}>Name</div>
+                        <div className={listStyle.tdStyle}>Class</div>
+                        <div className={listStyle.tdStyle}>Email</div>
+                        <div className={listStyle.tdStyle}>Phone</div>
+                        <div className={listStyle.tdStyle}>Books</div>
+                    </div>
                 </div>
                 <div className="h-[90%] overflow-y-auto rounded-2xl">
                     {/*Loops through each person that was fetched from the db*/}
                     {data.map((item: Student, index: Number) => {
                         return (
                         <div className={listStyle.trStyle} key={index.toString()}>
-                            <div className={listStyle.tdStyle}>
-                                {item.name}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.group}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.email}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.phone}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.loanedBooks.length}
-                            </div>
+                            <Link to={"/detailsStudent/" + item.PID} className={listStyle.tdStyle}>
+                                {item.FirstName}
+                            </Link>
+                            <Link to={"/detailsStudent/" + item.PID} className={listStyle.tdStyle}>
+                                {item.Email}
+                            </Link>
+                            <Link to={"/detailsStudent/" + item.PID} className={listStyle.tdStyle}>
+                                {item.PhoneNumber}
+                            </Link>
                         </div>)
                     })}
                 </div>
@@ -217,7 +222,7 @@ const listStyle: ListStyle = {
                                             <p>Loaned: {item.loaned}</p> 
                                         </div>
                                     </>}
-                                    {/*If there are items in stock*/}
+                                    {/*If there are no items in stock*/}
                                     {!(item.inStock) && 
                                     <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
                                         <div className="items-center grid mr-5">
@@ -271,19 +276,7 @@ const listStyle: ListStyle = {
                                                 <p>Loaned: {item.loaned}</p> 
                                             </div>
                                         </>}
-                                        {/*If there are items in stock*/}
-                                        {!(item.inStock) && 
-                                        <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
-                                            <div className="items-center grid mr-5">
-                                                <p>Out of stock</p>
-                                            </div>
-                                            <div className="items-center grid">
-                                                <TiTimes color='red'/>
-                                            </div>
-                                        </div>}
-                                        
                                     </div>
-
                             </div>
                         )
                     })}
@@ -361,12 +354,11 @@ const listStyle: ListStyle = {
                                     <img src={'https://image.bokus.com/images/'+ item.isbn} alt={'Omslag till boken '+item.title} />
                                 </div>
                                 
-                                {/*Borrowed books*/}
+                                {/*Missing books*/}
                                 <div className="p-3 w-[60%]">
                                     <h4 className="p-2 font-bold">Title: {item.title}</h4>
                                     <h4 className="p-2">Author: {item.author}</h4>
                                     <h4 className="p-2">Published: {item.published}</h4>
-                                    <h4 className="p-2">Amount: {item.amount}</h4>
                                 </div>
                                 <div className="flex flex-col justify-center align-center w-[30%]">
                                     
