@@ -13,7 +13,7 @@ module.exports = {
         "btnpinkky":"#E5627A",
 
         'ljusLila': '#F7EBFB',
-        'lila': '#AC35D6',
+        'lila': '#8B29AD',
         'mörkLila': '#541A69',
         'ljusGrön': '#F3F8EA',
         'grön': '#89B52B',
@@ -21,9 +21,18 @@ module.exports = {
         'ljusGul': '#FBF7EB',
         'gul': '#D6B235',
         'mörkGul': '#897222',
-        'adminSidebar': '#1F102B',
+        'ljusRöd': '#F9E9EB',
         'röd': '#B52B33',
-        'ljusRöd': '#F9E9EB'
+        'mörkRöd' : '#741B21',
+        'ljusBlå': '#EAF4F8',
+        'blå': '#2B94B5',
+        'mörkBlå' : '#1B5E74',
+        'ljusRosa': '#F9EAF1',
+        'rosa': '#C33289',
+        'mörkRosa' : '#5F1939',
+        'adminSidebar': '#1F102B',
+        
+        
       }
     },
   },
