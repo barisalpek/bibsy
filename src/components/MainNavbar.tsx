@@ -44,6 +44,7 @@ import { Link, NavLink } from 'react-router-dom';
         
             {/*BIG BUTTONS*/}
             {props.isBig && 
+
             <div className=" bg-white h-[100%] w-[100%] flex flex-col rounded-xl z-10">
                 <div className="h-[30%] w-[100%] p-5 flex-row flex">
                      {/* Books knapp */}
@@ -96,9 +97,6 @@ import { Link, NavLink } from 'react-router-dom';
             </div>
         }
 
-
-
-
             {/*SMALL BUTTONS*/}
             {!props.isBig && 
             <div className=" h-[15vh] w-[100%] right-[1%] top-[1%] items-start flex justify-center rounded-xl overflow-hidden">
@@ -146,7 +144,6 @@ import { Link, NavLink } from 'react-router-dom';
                     </p>
                 </div>
             </NavLink>
-            
             <NavLink to="/borrowedList" className="link ">
                 <div className="navbar-options active:bg-mörkBlå bg-blå mx-auto">
                     <label className=""><SiBookstack color='white'size={'3rem'}/></label>
@@ -155,7 +152,6 @@ import { Link, NavLink } from 'react-router-dom';
                     </p>
                 </div>
             </NavLink>
-
             <NavLink to="/notReturnedList" className="link">
                 <div className="navbar-options active:bg-mörkRöd bg-röd">
                     <label className=""><RiErrorWarningLine color='white'size={'3rem'}/></label>
