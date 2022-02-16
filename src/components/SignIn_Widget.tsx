@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 import {FaUser} from 'react-icons/fa';
 import ntilogo from "../assets/images/NTI-Gymnasiet.svg";
 import UseAxios from './UseAxios'
-
+import axios from 'axios';
 
 
 const SignInWidget = () => {
@@ -17,13 +17,43 @@ const SignInWidget = () => {
       // Preventing the page from reloading
       event.preventDefault();
 
+      let bodyFormData = new FormData();
+        bodyFormData.append('username', username);
+        bodyFormData.append('password', password);
       //Post body
       let SignIn = {
-        userName:        username,
-        Password:       password,
+        id:        username,
+        pass:       password,
       }
-      
-      UseAxios("192.168.198.144:3001/registerBook", SignIn);
+      console.log("FrontEnd:  "+JSON.stringify(SignIn));
+    axios.request({
+        method: 'POST',
+        url: 'http://192.168.198.153:2398/login',
+        data:bodyFormData,
+        headers: {
+           "Content-Type": "multipart/form-data" // <-- Important
+        }
+
+    }).then(function (response) {
+        console.log("BackEnd:   "+response.data);
+    })
+    // axios.post('http://192.168.198.153:2398/login', SignIn).then(res => {
+    //     console.log("UserName: "+username);
+    //     console.log("BackEnd:   "+res.data);
+    //     if(!res.data.success) return console.log(res.data.message);
+
+    //     if(res.data.UserName ==username){
+            
+    //     alert(JSON.stringify(res.data));
+    //     }
+    // });
+    //      UseAxios("http://192.168.198.153:2398/login", SignIn).then(res => {
+    //         console.log(res);
+    // }).catch(err => {   
+    //     console.log(err);
+    // });
+        // alert(username + password);
+    
     }
 
     

@@ -43,41 +43,41 @@ import { Link, NavLink } from 'react-router-dom';
         <>
             {/*BIG BUTTONS*/}
             {props.isBig && 
-            <div className=" bg-purple-100 h-[75vh] w-[75vw] fixed right-[3%] top-[15%] items-start flex justify-center rounded-xl overflow-hidden">
-                {/* Members knapp */}
-                <div className="h-[90%] w-[100%] p-5  pr-16">
-                    <NavLink to="" className="Button-options active:bg-purple-700 bg-purple-600">
-                        <label className=""><FiUsers color='white'size={'3rem'}/></label>
-                        <p className="main-sidebar-text">
-                            Members
-                        </p>
-                    </NavLink>
-                    {/* Books knapp */}
-                    <NavLink to="" className="Button-options active:bg-yellow-600 bg-yellow-500">
-                        <label className=""><ImBooks color='white'size={'3rem'}/></label>
-                        <p className="main-sidebar-text">
-                            Books
-                        </p>
-                    </NavLink>           
+                <div className=" bg-purple-100 h-[75vh] w-[75vw] fixed right-[3%] top-[15%] items-start flex justify-center rounded-xl overflow-hidden">
+                    {/* Members knapp */}
+                    <div className="h-[90%] w-[100%] p-5  pr-16">
+                        <NavLink to="" className="Button-options active:bg-purple-700 bg-purple-600">
+                            <label className=""><FiUsers color='white'size={'3rem'}/></label>
+                            <p className="main-sidebar-text">
+                                Members
+                            </p>
+                        </NavLink>
+                        {/* Books knapp */}
+                        <NavLink to="" className="Button-options active:bg-yellow-600 bg-yellow-500">
+                            <label className=""><ImBooks color='white'size={'3rem'}/></label>
+                            <p className="main-sidebar-text">
+                                Books
+                            </p>
+                        </NavLink>           
+                    </div>
+                        {/* Returned knapp */}
+                    <div className="h-[90%] w-[100%] p-5 pr-16">
+                        <NavLink to="/returned" className="Button-options active:bg-green-700 bg-green-600">
+                            <label className=""><SiBookstack color='white'size={'3rem'}/></label>
+                            <p className="main-sidebar-text">
+                                Returned
+                            </p>
+                        </NavLink>
+                        {/* Not Returned Knapp */}
+                        <NavLink to="" className="Button-options active:bg-red-700 bg-red-500">
+                            <label className=""><RiErrorWarningLine color='white'size={'3rem'}/></label>
+                            <p className="main-sidebar-text w-[80%]">
+                                Not Returned
+                            </p>
+                        </NavLink>
+                    </div>
                 </div>
-                    {/* Returned knapp */}
-                <div className="h-[90%] w-[100%] p-5 pr-16">
-                    <NavLink to="/returned" className="Button-options active:bg-green-700 bg-green-600">
-                        <label className=""><SiBookstack color='white'size={'3rem'}/></label>
-                        <p className="main-sidebar-text">
-                            Returned
-                        </p>
-                    </NavLink>
-                    {/* Not Returned Knapp */}
-                    <NavLink to="" className="Button-options active:bg-red-700 bg-red-500">
-                        <label className=""><RiErrorWarningLine color='white'size={'3rem'}/></label>
-                        <p className="main-sidebar-text w-[80%]">
-                            Not Returned
-                        </p>
-                    </NavLink>
-                </div>
-            </div>
-        }
+            }
 
 
 
@@ -94,7 +94,7 @@ import { Link, NavLink } from 'react-router-dom';
                 </div>
             </NavLink>
 
-            <NavLink to="" className="link">
+            <NavLink to="/memberList" className="link">
                 <div className="navbar-options active:bg-purple-700 bg-purple-700">
                     <label className=""><FiUsers color='white'size={'3rem'}/></label>
                     <p className="main-sidebar-text">
@@ -103,7 +103,7 @@ import { Link, NavLink } from 'react-router-dom';
                 </div>
             </NavLink>
 
-            <NavLink to="" className="link">
+            <NavLink to="/bookList" className="link">
                 <div className="navbar-options active:bg-yellow-600 bg-yellow-500">
                     <label className=""><ImBooks color='white'size={'3rem'}/></label>
                     <p className="main-sidebar-text">
@@ -121,7 +121,7 @@ import { Link, NavLink } from 'react-router-dom';
                 </div>
             </NavLink>
             
-            <NavLink to="" className="link">
+            <NavLink to="/loanedList" className="link">
                 <div className="navbar-options active:bg-red-700 bg-red-500">
                     <label className=""><RiErrorWarningLine color='white'size={'3rem'}/></label>
                     <p className="main-sidebar-text w-[80%]">

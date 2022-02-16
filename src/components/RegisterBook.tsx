@@ -57,7 +57,7 @@ import UseAxios from './UseAxios'
         {props.isMember && 
             <div className=" bg-white h-[75vh] w-[70vw] fixed right-[10%] top-[15%] items-center flex rounded-xl overflow-hidden">
                     {/* När formens butten submit tryckes med hjälp av onSubmit körs funktionen submitFormStudent */}
-                <form className="w-[100%] h-[100%] ml-[6%] " onSubmit={submitFormStudent}>
+                <form className="w-[100%] h-[100%] ml-[6%] " onSubmit={submitFormStudent} method="post">
 
                     <h1 className=" text-3xl text-center p-10  mt-[5%] mr-[5%] -z-10" >Registrera medlem</h1>
 
@@ -81,7 +81,7 @@ import UseAxios from './UseAxios'
             <div className=" bg-purple-100 h-[75vh] w-[75vw] fixed right-[3%] top-[15%] items-center flex rounded-xl overflow-hidden">
 
                 {/* När formens butten submit tryckes med hjälp av onSubmit körs funktionen submitFormBook */}
-            <form className="w-[60%] h-[100%]" onSubmit={submitFormBook}>
+            <form className="w-[60%] h-[100%]" onSubmit={submitFormBook} method="post">
 
                 <img src="/../assets/frown-regular.svg" alt="" />
 
