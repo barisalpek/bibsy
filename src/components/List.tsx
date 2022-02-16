@@ -2,21 +2,31 @@ import React, { useEffect,  useState } from "react";
 import {BsCheckLg} from 'react-icons/bs';
 import {TiTimes} from 'react-icons/ti';
 import getData from "./getData";
+import { Link,  } from 'react-router-dom';
 
 type Props = {
     mainColor: string;
     listColor: string;
     typeOf: string;
-    bookType: string;
+    request: string;
   }
 
-  type Person = {
-    name: string;
-    group: string;
-    email: string;
-    img: string;
-    phone: string;
-    loanedBooks: [Book, Book, Book];
+  type Student = {
+    ID: number;
+    PID: string;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    PhoneNumber: string;
+}
+
+type Staff = {
+    ID: number;
+    PID: string;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    PhoneNumber: string;
 }
 
 type Book  = {
@@ -40,88 +50,142 @@ type ListStyle = {
 const List = (props: Props) => {
 
 const listStyle: ListStyle = {
-    theadStyle: 'flex flex-row items-center bg-lila h-[10%] text-3xl text-left text-white rounded-t-2xl pl-5',
-    trStyle: 'w-full h-auto odd:bg-white even:bg-ljusLila p-5 flex flex-row',
-    tdStyle: 'p-3',
+    theadStyle: 'flex flex-row items-center h-[10%] text-3xl text-left text-white rounded-t-2xl ',
+    trStyle: 'w-full h-auto odd:bg-white even:bg-ljusLila p-5 flex space-x-52 flex-row',
+    tdStyle: 'p-3 mx-auto w-[10%]',
     imgStyle: 'w-[10%] h-auto',
     svgStyle: 'h-[100%] ml-5',
 }
     //Data from db to useState
     const [data, setData] = useState<any>([]);
     //Modularity from props can be set to member or book
-    const [isMemberType, setIsMemberType] = useState<boolean | null>(null);
-
-    const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
+    const [isStaff, setIsStaff] = useState<boolean>(false);
+    const [isStudents, setIsStudents] = useState<boolean>(false);
+    const [isAllBooks, setIsAllBooks] = useState<boolean>(false);
+    const [isAvailableBooks, setIsAvailableBooks] = useState<boolean>(false);
+    const [isBorrowedBooks, setIsBorrowedBooks] = useState<boolean>(false);
+    const [isMissingBooks, setIsMissingBooks] = useState<boolean>(false);
 
     //Runs only on first update
     useEffect(() => {
         //fetching data
-        getData("http://localhost:3001/" + props.typeOf + "s")
+        getData("http://localhost:3001/" + props.request)
         .then((res) => {
             setData(res);
+            console.log(res);
         });
 
         //setData(books);
         //Determine what is passed in through props
-        if (props.typeOf === 'member') {
-            setIsMemberType(true);
+        if (props.typeOf === 'Staff') {
+            setIsStaff(true);
+            setIsStudents(false);
+            setIsAllBooks(false);
+            setIsAvailableBooks(false);
+            setIsBorrowedBooks(false);
+            setIsMissingBooks(false);
         }
-        else if (props.typeOf === 'book') {
-            setIsMemberType(false);
+        else if (props.typeOf === 'Students') {
+            setIsStudents(true);
+            setIsStaff(false);
+            setIsAllBooks(false);
+            setIsAvailableBooks(false);
+            setIsBorrowedBooks(false);
+            setIsMissingBooks(false);
         }
-        else {
-            setIsMemberType(null);
+        else if (props.typeOf === 'AllBooks'){
+            setIsAllBooks(true);
+            setIsStaff(false);
+            setIsStudents(false);
+            setIsAvailableBooks(false);
+            setIsBorrowedBooks(false);
+            setIsMissingBooks(false);
         }
-
-        if (props.bookType === 'available') {
-            setIsAvailable(true);
+        else if (props.typeOf === 'AvailableBooks'){
+            setIsAvailableBooks(true);
+            setIsStaff(false);
+            setIsStudents(false);
+            setIsAllBooks(false);
+            setIsBorrowedBooks(false);
+            setIsMissingBooks(false);
         }
-        else if (props.bookType === 'borrowed') {
-            setIsAvailable(false);
+        else if (props.typeOf === 'BorrowedBooks'){
+            setIsBorrowedBooks(true);
+            setIsAvailableBooks(false);
+            setIsStaff(false);
+            setIsStudents(false);
+            setIsAllBooks(false);
+            setIsMissingBooks(false);
         }
-        else {
-            setIsAvailable(null);
+        else if (props.typeOf === 'MissingBooks'){
+            setIsMissingBooks(true);
+            setIsBorrowedBooks(false);
+            setIsAvailableBooks(false);
+            setIsStaff(false);
+            setIsStudents(false);
+            setIsAllBooks(false);
         }
 
     }, []);
 
     return (
         <div className="h-[100%] w-[100%] rounded -z-[1]">
-            {/*Conditional rendering, only renders if the passed in prop is 'member'*/}
-            {isMemberType && <div className="h-[100%] w-[100%] bg-white rounded-2xl">
+            {isStaff && <><div className="h-[100%] w-[100%] bg-white rounded-2xl">
                 <div className={listStyle.theadStyle}>
-                    <div className={listStyle.tdStyle}>Name</div>
-                    <div className={listStyle.tdStyle}>Class</div>
-                    <div className={listStyle.tdStyle}>Email</div>
-                    <div className={listStyle.tdStyle}>Phone</div>
-                    <div className={listStyle.tdStyle}>Books</div>
+                    <div className="w-[100%] h-[100%] bg-lila rounded-t-2xl flex flex-row">
+                        <div className={listStyle.tdStyle}>Name</div>
+                        <div className={listStyle.tdStyle}>Email</div>
+                        <div className={listStyle.tdStyle}>Phone</div>
+                    </div>
                 </div>
                 <div className="h-[90%] overflow-y-auto rounded-2xl">
                     {/*Loops through each person that was fetched from the db*/}
-                    {data.map((item: Person, index: Number) => {
+                    {data.map((item: Staff, index: Number) => {
                         return (
                         <div className={listStyle.trStyle} key={index.toString()}>
-                            <div className={listStyle.tdStyle}>
-                                {item.name}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.group}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.email}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.phone}
-                            </div>
-                            <div className={listStyle.tdStyle}>
-                                {item.loanedBooks.length}
-                            </div>
+                            <Link to={"/detailsStaff/staff/" + item.ID} className={listStyle.tdStyle}>
+                                {item.FirstName + " " + item.LastName}
+                            </Link>
+                            <Link to={"/detailsStaff/staff/" + item.ID} className={listStyle.tdStyle}>
+                                {item.Email}
+                            </Link>
+                            <Link to={"/detailsStaff/staff/" + item.ID} className={listStyle.tdStyle}>
+                                {item.PhoneNumber}
+                            </Link>
                         </div>)
                     })}
                 </div>
-            </div>}
-            {/*Conditional rendering, only renders if passed in prop is book*/}
-            {!isMemberType && <div className="h-[100%] w-full rounded">
+            </div></>}
+            {isStudents && <><div className="h-[100%] w-[100%] bg-white rounded-2xl">
+                <div className={listStyle.theadStyle}>
+                    <div className="w-[100%] h-[100%] bg-rosa rounded-t-2xl flex flex-row">
+                        <div className={listStyle.tdStyle}>Name</div>
+                        <div className={listStyle.tdStyle}>Class</div>
+                        <div className={listStyle.tdStyle}>Email</div>
+                        <div className={listStyle.tdStyle}>Phone</div>
+                        <div className={listStyle.tdStyle}>Books</div>
+                    </div>
+                </div>
+                <div className="h-[90%] overflow-y-auto rounded-2xl">
+                    {/*Loops through each person that was fetched from the db*/}
+                    {data.map((item: Student, index: Number) => {
+                        return (
+                        <div className={listStyle.trStyle} key={index.toString()}>
+                            <Link to={"/detailsStudent/" + item.PID} className={listStyle.tdStyle}>
+                                {item.FirstName}
+                            </Link>
+                            <Link to={"/detailsStudent/" + item.PID} className={listStyle.tdStyle}>
+                                {item.Email}
+                            </Link>
+                            <Link to={"/detailsStudent/" + item.PID} className={listStyle.tdStyle}>
+                                {item.PhoneNumber}
+                            </Link>
+                        </div>)
+                    })}
+                </div>
+            </div></>}
+            
+            {isAllBooks && <><div className="h-[100%] w-full rounded">
                 <div className="grid items-center bg-gul h-[10%] text-3xl text-left text-white rounded-t-2xl pl-5">
                     Books
                 </div>
@@ -134,7 +198,62 @@ const listStyle: ListStyle = {
                                 <div className={listStyle.imgStyle}>
                                     <img src={'https://image.bokus.com/images/'+ item.isbn} alt={'Omslag till boken '+item.title} />
                                 </div>
-                                {isAvailable && <>
+                                
+                                {/*All books*/}
+                                <div className="p-3 w-[60%]">
+                                    <h4 className="p-2 font-bold">Title: {item.title}</h4>
+                                    <h4 className="p-2">Author: {item.author}</h4>
+                                    <h4 className="p-2">Published: {item.published}</h4>
+                                    <h4 className="p-2">Amount: {item.amount}</h4>
+                                </div>
+                                <div className="flex flex-col justify-center align-center w-[30%]">
+                                    
+                                    {/*If there are items in stock*/}
+                                    {(item.inStock) && <>
+                                        <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
+                                            <div className="items-center grid mr-5">
+                                                <p className="align-middle">Available: {item.amount-item.loaned}</p>
+                                            </div>
+                                            <div className="items-center grid">
+                                                <BsCheckLg color='green' />
+                                            </div>
+                                        </div>
+                                        <div className="flex justify-center">
+                                            <p>Loaned: {item.loaned}</p> 
+                                        </div>
+                                    </>}
+                                    {/*If there are no items in stock*/}
+                                    {!(item.inStock) && 
+                                    <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
+                                        <div className="items-center grid mr-5">
+                                            <p>Out of stock</p>
+                                        </div>
+                                        <div className="items-center grid">
+                                            <TiTimes color='red'/>
+                                        </div>
+                                    </div>}
+                                    
+                                </div>
+
+                            </div>
+                        )
+                    })}
+                </div>
+            </div></>}
+            {isAvailableBooks && <><div className="h-[100%] w-full rounded">
+                <div className="grid items-center bg-grön h-[10%] text-3xl text-left text-white rounded-t-2xl pl-5">
+                    Books
+                </div>
+                
+                <div className="h-[90%] overflow-y-auto">
+                    {/*Loops through each book fetched from the db*/}
+                    {data.map((item: Book, index: Number) => {
+                        return (
+                            <div className={`w-[100%] odd:bg-white even:bg-ljusgrön p-5 flex flex-row justify-between`} key={String(index)}>
+                                <div className={listStyle.imgStyle}>
+                                    <img src={'https://image.bokus.com/images/'+ item.isbn} alt={'Omslag till boken '+item.title} />
+                                </div>
+                                
                                     <div className="p-3 w-[60%]">
                                         <h4 className="p-2 font-bold">Title: {item.title}</h4>
                                         <h4 className="p-2">Author: {item.author}</h4>
@@ -157,22 +276,29 @@ const listStyle: ListStyle = {
                                                 <p>Loaned: {item.loaned}</p> 
                                             </div>
                                         </>}
-                                        {/*If there are items in stock*/}
-                                        {!(item.inStock) && 
-                                        <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
-                                            <div className="items-center grid mr-5">
-                                                <p>Out of stock</p>
-                                            </div>
-                                            <div className="items-center grid">
-                                                <TiTimes color='red'/>
-                                            </div>
-                                        </div>}
-                                        
                                     </div>
-                                </>}
+                            </div>
+                        )
+                    })}
+                </div>
+            </div></>}
+            {isBorrowedBooks && <>
+            <div className="h-[100%] w-full rounded">
+                <div className="grid items-center bg-blå h-[10%] text-3xl text-left text-white rounded-t-2xl pl-5">
+                    Books
+                </div>
+                
+                <div className="h-[90%] overflow-y-auto">
+                    {/*Loops through each book fetched from the db*/}
+                    {data.map((item: Book, index: Number) => {
+                        return (
+                            <div className={`w-[100%] odd:bg-white even:bg-ljusblå p-5 flex flex-row justify-between`} key={String(index)}>
+                                <div className={listStyle.imgStyle}>
+                                    <img src={'https://image.bokus.com/images/'+ item.isbn} alt={'Omslag till boken '+item.title} />
+                                </div>
                                 
                                 {/*Borrowed books*/}
-                                {!isAvailable && <><div className="p-3 w-[60%]">
+                                <div className="p-3 w-[60%]">
                                     <h4 className="p-2 font-bold">Title: {item.title}</h4>
                                     <h4 className="p-2">Author: {item.author}</h4>
                                     <h4 className="p-2">Published: {item.published}</h4>
@@ -194,7 +320,7 @@ const listStyle: ListStyle = {
                                             <p>Loaned: {item.loaned}</p> 
                                         </div>
                                     </>}
-                                    {/*If there are items in stock*/}
+                                    {/*If there are not items in stock*/}
                                     {!(item.inStock) && 
                                     <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
                                         <div className="items-center grid mr-5">
@@ -205,14 +331,69 @@ const listStyle: ListStyle = {
                                         </div>
                                     </div>}
                                     
-                                    </div>
-                                </>}
+                                </div>
 
                             </div>
                         )
                     })}
                 </div>
-            </div>}
+            </div></>}
+
+            {isMissingBooks && <>
+            <div className="h-[100%] w-full rounded">
+                <div className="grid items-center bg-blå h-[10%] text-3xl text-left text-white rounded-t-2xl pl-5">
+                    Books
+                </div>
+                
+                <div className="h-[90%] overflow-y-auto">
+                    {/*Loops through each book fetched from the db*/}
+                    {data.map((item: Book, index: Number) => {
+                        return (
+                            <div className={`w-[100%] odd:bg-white even:bg-ljusblå p-5 flex flex-row justify-between`} key={String(index)}>
+                                <div className={listStyle.imgStyle}>
+                                    <img src={'https://image.bokus.com/images/'+ item.isbn} alt={'Omslag till boken '+item.title} />
+                                </div>
+                                
+                                {/*Missing books*/}
+                                <div className="p-3 w-[60%]">
+                                    <h4 className="p-2 font-bold">Title: {item.title}</h4>
+                                    <h4 className="p-2">Author: {item.author}</h4>
+                                    <h4 className="p-2">Published: {item.published}</h4>
+                                </div>
+                                <div className="flex flex-col justify-center align-center w-[30%]">
+                                    
+                                    {/*If there are items in stock*/}
+                                    {(item.inStock) && <>
+                                        <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
+                                            <div className="items-center grid mr-5">
+                                                <p className="align-middle">Available: {item.amount-item.loaned}</p>
+                                            </div>
+                                            <div className="items-center grid">
+                                                <BsCheckLg color='green' />
+                                            </div>
+                                        </div>
+                                        <div className="flex justify-center">
+                                            <p>Loaned: {item.loaned}</p> 
+                                        </div>
+                                    </>}
+                                    {/*If there are not items in stock*/}
+                                    {!(item.inStock) && 
+                                    <div className='flex flex-row justify-center align-center h-[15%] text-3xl'>
+                                        <div className="items-center grid mr-5">
+                                            <p>Out of stock</p>
+                                        </div>
+                                        <div className="items-center grid">
+                                            <TiTimes color='red'/>
+                                        </div>
+                                    </div>}
+                                    
+                                </div>
+
+                            </div>
+                        )
+                    })}
+                </div>
+            </div></>}
         </div>
     );
 }
