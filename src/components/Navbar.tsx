@@ -37,7 +37,7 @@ const Navbar = () => {
         {/* Here is the icon, positioning (of) and members */}
       
         {/* Will be attempting to add a dropdown */}
-        <NavLink to="/memberList" className="w-[100%]">
+        <NavLink to="/studentList" className="w-[100%]">
           <div className="sidebar-options">
             <label className=""><FiUsers color='white'size={'3rem'}/></label>
               <p className="sidebar-text">

@@ -81,7 +81,7 @@ const Main = () => {
                 )}/>
 
                 {/* Displays all members */}
-                <Route path="/memberList" element={(
+                <Route path="/studentList" element={(
                     <>
                         <div className='h-[100%] w-[100%] flex flex-row z-10'>
                             <div className='w-full h-[100%] flex flex-col content-between'>
@@ -91,14 +91,32 @@ const Main = () => {
                         
                                 <div className='h-[85%] w-full'>
                                     {/* List component, takes mainColor and listColor as params to dynamicly change color between pages, typeOf determines if the component displays the memberstyle list or bookstyle, there is also two types of bookdisplays named bookType, "available" and "borrowed", this can be greatly improved for simplicity by changing typeof to three different types like member, available and borrowed */}
-                                    <List mainColor='lila' listColor='ljusLila' typeOf='member' bookType="available"/>
+                                    <List mainColor='lila' listColor='ljusLila' typeOf='Students' request="students"/>
                                 </div>
                             </div> 
                         </div>
                     </>
                 )}/>
 
-                {/* Displays available books */}
+                {/* Displays all members */}
+                <Route path="/staffList" element={(
+                    <>
+                        <div className='h-[100%] w-[100%] flex flex-row z-10'>
+                            <div className='w-full h-[100%] flex flex-col content-between'>
+                                <div className='h-[10%] mb-[3%]'>
+                                    <MainNavbar/>
+                                </div>
+                        
+                                <div className='h-[85%] w-full'>
+                                    {/* List component, takes mainColor and listColor as params to dynamicly change color between pages, typeOf determines if the component displays the memberstyle list or bookstyle, there is also two types of bookdisplays named bookType, "available" and "borrowed", this can be greatly improved for simplicity by changing typeof to three different types like member, available and borrowed */}
+                                    <List mainColor='lila' listColor='ljusLila' typeOf='Staff' request="staff"/>
+                                </div>
+                            </div> 
+                        </div>
+                    </>
+                )}/>
+
+                {/* Displays all books */}
                 <Route path="/bookList" element={(
                 <>
                     <div className='h-[100%] w-[100%] flex  flex-row z-10'>
@@ -110,7 +128,26 @@ const Main = () => {
                             <div className='h-[85%] w-full'>
                                 <></>
                                 {/* List component, takes mainColor and listColor as params to dynamicly change color between pages, typeOf determines if the component displays the memberstyle list or bookstyle, there is also two types of bookdisplays named bookType, "available" and "borrowed", this can be greatly improved for simplicity by changing typeof to three different types like member, available and borrowed */}
-                                <List mainColor='grön' listColor='ljusGrön' typeOf='book' bookType="available"/>
+                                <List mainColor='gul' listColor='ljusGul' typeOf='AllBooks' request="books"/>
+                            </div>
+                        </div> 
+                    </div>
+                </>
+            )}/>
+
+            {/* Displays available books */}
+            <Route path="/availableBookList" element={(
+                <>
+                    <div className='h-[100%] w-[100%] flex  flex-row z-10'>
+                        <div className='w-full h-[100%] flex flex-col content-between'>
+                            <div className='h-[10%] mb-[3%]'>
+                                <MainNavbar/>
+                            </div>
+                        
+                            <div className='h-[85%] w-full'>
+                                <></>
+                                {/* List component, takes mainColor and listColor as params to dynamicly change color between pages, typeOf determines if the component displays the memberstyle list or bookstyle, there is also two types of bookdisplays named bookType, "available" and "borrowed", this can be greatly improved for simplicity by changing typeof to three different types like member, available and borrowed */}
+                                <List mainColor='grön' listColor='ljusGrön' typeOf='AvailableBooks' request="availableBooks"/>
                             </div>
                         </div> 
                     </div>
@@ -118,7 +155,7 @@ const Main = () => {
             )}/>
 
             {/* Displays loaned books */}
-            <Route path="/loanedList" element={(
+            <Route path="/borrowedList" element={(
                 <>
                     <div className='h-[100%] w-[100%] flex  flex-row'>
                         <div className='w-full h-[100%] flex flex-col content-between'>
@@ -128,7 +165,7 @@ const Main = () => {
                         
                             <div className='h-[85%] w-full'>
                                 <></>
-                                <List mainColor='röd' listColor='ljusRöd' typeOf='missing' bookType="borrowed"/>
+                                <List mainColor='blå' listColor='ljusBlå' typeOf='BorrowedBooks' request="borrowed"/>
                             </div>
                         </div> 
                     </div>
