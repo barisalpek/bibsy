@@ -136,6 +136,7 @@ const listStyle: ListStyle = {
                         <div className={listStyle.tdStyle}>Name</div>
                         <div className={listStyle.tdStyle}>Email</div>
                         <div className={listStyle.tdStyle}>Phone</div>
+                        <div className={listStyle.tdStyle}>Phone</div>
                     </div>
                 </div>
                 <div className="h-[90%] overflow-y-auto rounded-2xl">
@@ -143,13 +144,13 @@ const listStyle: ListStyle = {
                     {data.map((item: Staff, index: Number) => {
                         return (
                         <div className={listStyle.trStyle} key={index.toString()}>
-                            <Link to={"/detailsStaff/staff/" + item.ID} className={listStyle.tdStyle}>
+                            <Link to={"/details/staff/" + item.PID} className={listStyle.tdStyle}>
                                 {item.FirstName + " " + item.LastName}
                             </Link>
-                            <Link to={"/detailsStaff/staff/" + item.ID} className={listStyle.tdStyle}>
+                            <Link to={"/details/staff/" + item.PID} className={listStyle.tdStyle}>
                                 {item.Email}
                             </Link>
-                            <Link to={"/detailsStaff/staff/" + item.ID} className={listStyle.tdStyle}>
+                            <Link to={"/details/staff/" + item.PID} className={listStyle.tdStyle}>
                                 {item.PhoneNumber}
                             </Link>
                         </div>)
@@ -171,13 +172,13 @@ const listStyle: ListStyle = {
                     {data.map((item: Student, index: Number) => {
                         return (
                         <div className={listStyle.trStyle} key={index.toString()}>
-                            <Link to={"/detailsStudent/" + item.PID} className={listStyle.tdStyle}>
+                            <Link to={"/details/student/" + item.PID} className={listStyle.tdStyle}>
                                 {item.FirstName}
                             </Link>
-                            <Link to={"/detailsStudent/" + item.PID} className={listStyle.tdStyle}>
+                            <Link to={"/details/student/" + item.PID} className={listStyle.tdStyle}>
                                 {item.Email}
                             </Link>
-                            <Link to={"/detailsStudent/" + item.PID} className={listStyle.tdStyle}>
+                            <Link to={"/details/student/" + item.PID} className={listStyle.tdStyle}>
                                 {item.PhoneNumber}
                             </Link>
                         </div>)
@@ -200,12 +201,12 @@ const listStyle: ListStyle = {
                                 </div>
                                 
                                 {/*All books*/}
-                                <div className="p-3 w-[60%]">
+                                <Link to={"/details/book/" + item.isbn} className="p-3 w-[60%]">
                                     <h4 className="p-2 font-bold">Title: {item.title}</h4>
                                     <h4 className="p-2">Author: {item.author}</h4>
                                     <h4 className="p-2">Published: {item.published}</h4>
                                     <h4 className="p-2">Amount: {item.amount}</h4>
-                                </div>
+                                </Link>
                                 <div className="flex flex-col justify-center align-center w-[30%]">
                                     
                                     {/*If there are items in stock*/}
