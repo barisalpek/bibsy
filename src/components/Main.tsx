@@ -7,7 +7,7 @@ import {
     Routes,
   } from "react-router-dom";
 
-import SignInWidget from './SignIn_Widget';
+import SignInWidget from './SignIn_Widgetv2';
 import MainNavbar from './MainNavbar';
 import Navbar from './Navbar';
 import RegisterBook from './RegisterBook';
@@ -40,7 +40,7 @@ const Main = () => {
             <Theme/>
         <div className='flex justify-center content-center w-[90%] m-auto h-[90%] touch-none flex-row'>
             
-            { isAdmin && <Navbar/>  }
+            {/* { isAdmin && <Navbar/>  } */}
 
             <Routes>
         
