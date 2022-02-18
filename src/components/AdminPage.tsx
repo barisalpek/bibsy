@@ -1,15 +1,8 @@
-import react from 'react';
+import react from "react";
 
-type Prop = {
-
-}
+type Prop = {};
 
 const AdminPage = (props: any) => {
-
-    return(
-        <>
-        </>
-    );
-
-}
+  return <></>;
+};
 export default AdminPage;

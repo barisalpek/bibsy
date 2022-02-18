@@ -4,89 +4,80 @@
 
 /* these dont really work, idk */
 
-@layer components{
-
-
-        /*Sidebar*/
-          .sidebar-options {
-             @apply flex
-                    items-center
-                    text-center 
+@layer components {
+  /*Sidebar*/
+  .sidebar-options {
+    @apply flex
+                    w-full
+                    items-center 
                     justify-center 
                     pt-5 pb-5
+                     text-center 
                      text-zinc-50 
-                     hover:bg-purple-800 
-                    w-full
-          }
-     
-          .sidebar-text{
-             @apply w-[50%] 
-                    hidden 
-                    md:block
-          }
-     
-          /*main navbar*/
-          .navbar-options {
-             @apply w-[90%]
-                    h-[100%] 
-                    rounded-2xl
-                    m-2
-                    flex
+                    hover:bg-purple-800;
+  }
+
+  .sidebar-text {
+    @apply hidden 
+                    w-[50%] 
+                    md:block;
+  }
+
+  /*main navbar*/
+  .navbar-options {
+    @apply m-2
+                    flex 
+                    h-[100%]
+                    w-[90%]
                     items-center
-                    text-center 
-                    justify-center 
-          }
-     
-     
-          .link {
-             @apply w-[25%]
-                    h-[80%]
-          }
-          
-     
-     
-          .main-sidebar-text{
-              @apply w-[60%] 
-                    hidden 
-                    md:block
+                    justify-center
+                    rounded-2xl 
+                    text-center;
+  }
+
+  .link {
+    @apply h-[80%]
+                    w-[25%];
+  }
+
+  .main-sidebar-text {
+    @apply hidden 
+                    w-[60%] 
                     text-xl
                     text-white
-        }
-     
-        .Button-options {
-              @apply w-[100%]
-                    h-[35%] 
-                    rounded-2xl
-                    m-5
+                    md:block;
+  }
+
+  .Button-options {
+    @apply m-5
+                    mt-16 
                     flex
+                    h-[35%]
+                    w-[100%]
                     items-center
-                    text-center 
                     justify-center 
-                    mt-16
-     }
-     
-     
-        .bookInput {
-           @apply m-5
+                    rounded-2xl 
+                    text-center;
+  }
+
+  .bookInput {
+    @apply m-5
                   w-[42%]
-                  p-[1%]
                   rounded-xl
-        }
-     
-        .SignIn-div{
-           @apply
+                  p-[1%];
+  }
+
+  .SignIn-div {
+    @apply mb-6
            flex
            items-center
-           bg-transparent
-          text-white
-            border-2
-          border-white
+          border-2
             border-r-0
-            border-l-0
+          border-l-0
             border-t-0
-            mb-6
-            pb-2 
-        }
-         
-     }
-     
+            border-white
+            bg-transparent
+            pb-2
+            text-white;
+  }
+}
