@@ -1,9 +1,9 @@
 import React from 'react';
 import {BiUserCircle} from 'react-icons/bi';
-import {FiUsers} from 'react-icons/fi'
+import {ImUserPlus} from 'react-icons/im'
 import {RiErrorWarningLine} from 'react-icons/ri';
 import {RiDashboardLine} from 'react-icons/ri';
-import {ImBooks} from 'react-icons/im';
+import {GiWhiteBook} from 'react-icons/gi';
 import { Link, NavLink } from 'react-router-dom';
 
 
@@ -12,7 +12,7 @@ const Navbar = () => {
   return(
 
     // Here is the main component of the navbar
-    <div className="bg-adminSidebar  w-[2vw] xl:w-[16vw] xl:p-[2vw] h-[100%] items-center grid justify-center rounded-l-2xl overflow-hidden z-10">
+    <div className="bg-adminSidebar divide-y-5 divide-rosa w-[20vw] xl:w-[16vw] xl:p-[2vw] h-[100%] items-center grid justify-center rounded-l-2xl overflow-hidden z-10">
 
       {/* Here is the icon, positioning (of) and admin */}
         <div className="grid place-items-center mb-3 pb-2">
@@ -21,7 +21,7 @@ const Navbar = () => {
         </div>
         
       {/* Here is the line dividing the other links */}
-      <hr className= "w-[80%] mx-auto" />
+      <hr className= "w-[80%] mx-auto divide-red-500" />
 
       {/* Here is the icon, positioning (of) and dashboard */}
       <div className="place-items-center w-[19vw]">  
@@ -34,24 +34,24 @@ const Navbar = () => {
               </p>
           </div>
         </NavLink>
-        {/* Here is the icon, positioning (of) and members */}
+        {/* Here is the icon, positioning (of) and register user */}
       
         {/* Will be attempting to add a dropdown */}
         <NavLink to="/studentList" className="w-[100%]">
           <div className="sidebar-options">
-            <label className=""><FiUsers color='white'size={'3rem'}/></label>
+            <label className=""><ImUserPlus color='white'size={'3rem'}/></label>
               <p className="sidebar-text">
-                Members
+                Register User
               </p>
           </div> 
         </NavLink>
         
-        {/* Here is the icon, positioning (of) and books */}  
+        {/* Here is the icon, positioning (of) and register books */}  
         <NavLink to="/bookList" className="w-[100%]">
           <div className="sidebar-options">
-          <label className=""><ImBooks color='white'size={'3rem'}/></label>
+          <label className=""><GiWhiteBook color='white'size={'3rem'}/></label>
             <p className="sidebar-text">
-              Books
+              Register Book
             </p>
           </div>
         </NavLink>
@@ -61,7 +61,7 @@ const Navbar = () => {
           <div className="sidebar-options">
             <label className=""><RiErrorWarningLine color='white'size={'3rem'}/></label>
               <p className="sidebar-text">
-                Missing
+                Remind
               </p>
           </div>
         </NavLink>

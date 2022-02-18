@@ -4,7 +4,7 @@ import {GiArchiveRegister} from "react-icons/gi";
 import UseAxios from './UseAxios'
 
 
- const RegisterBook = (props : any) => {
+ const Register = (props : any) => {
 
     //Lagrar dess informationen som state
     const [firstName, setFirstName] = useState('');
@@ -113,4 +113,4 @@ import UseAxios from './UseAxios'
 
  
 
-export default RegisterBook;
+export default Register;

@@ -10,7 +10,7 @@ import {
 import SignInWidget from './SignIn_Widgetv2';
 import MainNavbar from './MainNavbar';
 import Navbar from './Navbar';
-import RegisterBook from './RegisterBook';
+import Register from './Register';
 import ReturnAndBorrow from './ReturnAndBorrow';
 import DocumentMeta from "react-document-meta";
 import List from './List';
@@ -59,13 +59,13 @@ const Main = () => {
                 {/* Displays page for registering books */}
                 <Route path="/registerBook" element={(
                     //isMember=true registers member, isMember=false registers book
-                    <RegisterBook isMember={false} />
+                    <Register isMember={false} />
                 )}/>
 
                 {/* Displays page for registering members */}
                 <Route path="/registerMember" element={(
                     //isMember=true registers member, isMember=false registers book
-                    <RegisterBook isMember={true} />
+                    <Register isMember={true} />
                 )}/>
 
                 {/* Displays page for borrowing books */}
@@ -85,11 +85,11 @@ const Main = () => {
                     <>
                         <div className='h-[100%] w-[100%] flex flex-row z-10'>
                             <div className='w-full h-[100%] flex flex-col content-between'>
-                                <div className='h-[10%] mb-[3%]'>
+                                <div className='h-[20%]'>
                                     <MainNavbar/>
                                 </div>
                                     <></>
-                                <div className='h-[85%] w-full bg-white rounded-2xl'>
+                                <div className='h-[80%] w-full bg-white rounded-2xl'>
                                     {/* List component, takes mainColor and listColor as params to dynamicly change color between pages, typeOf determines if the component displays the memberstyle list or bookstyle, there is also two types of bookdisplays named bookType, "available" and "borrowed", this can be greatly improved for simplicity by changing typeof to three different types like member, available and borrowed */}
                                     <List mainColor='lila' listColor='ljusLila' typeOf='Students' request="students"/>
                                 </div>
@@ -103,11 +103,11 @@ const Main = () => {
                     <>
                         <div className='h-[100%] w-[100%] flex flex-row z-10'>
                             <div className='w-full h-[100%] flex flex-col content-between'>
-                                <div className='h-[10%] mb-[3%]'>
+                                <div className='h-[20%]'>
                                     <MainNavbar/>
                                 </div>
                         
-                                <div className='h-[85%] w-full  bg-white rounded-2xl'>
+                                <div className='h-[80%] w-full  bg-white rounded-2xl'>
                                     {/* List component, takes mainColor and listColor as params to dynamicly change color between pages, typeOf determines if the component displays the memberstyle list or bookstyle, there is also two types of bookdisplays named bookType, "available" and "borrowed", this can be greatly improved for simplicity by changing typeof to three different types like member, available and borrowed */}
                                     <List mainColor='lila' listColor='ljusLila' typeOf='Staff' request="staff"/>
                                 </div>
@@ -121,11 +121,11 @@ const Main = () => {
                 <>
                     <div className='h-[100%] w-[100%] flex  flex-row z-10'>
                         <div className='w-full h-[100%] flex flex-col content-between'>
-                            <div className='h-[10%] mb-[3%]'>
+                            <div className='h-[20%]'>
                                 <MainNavbar isBig={false}/>
                             </div>
                         
-                            <div className='h-[85%] w-full  bg-white rounded-2xl'>
+                            <div className='h-[80%] w-full  bg-white rounded-2xl'>
                                 <></>
                                 {/* List component, takes mainColor and listColor as params to dynamicly change color between pages, typeOf determines if the component displays the memberstyle list or bookstyle, there is also two types of bookdisplays named bookType, "available" and "borrowed", this can be greatly improved for simplicity by changing typeof to three different types like member, available and borrowed */}
                                 <List mainColor='gul' listColor='ljusGul' typeOf='AllBooks' request="books"/>
@@ -140,11 +140,11 @@ const Main = () => {
                 <>
                     <div className='h-[100%] w-[100%] flex  flex-row z-10'>
                         <div className='w-full h-[100%] flex flex-col content-between'>
-                            <div className='h-[10%] mb-[3%]'>
+                            <div className='h-[20%]'>
                                 <MainNavbar/>
                             </div>
                                 <></>
-                            <div className='h-[85%] w-full  bg-white rounded-2xl'>
+                            <div className='h-[80%] w-full  bg-white rounded-2xl'>
                                 <></>
                                 {/* List component, takes mainColor and listColor as params to dynamicly change color between pages, typeOf determines if the component displays the memberstyle list or bookstyle, there is also two types of bookdisplays named bookType, "available" and "borrowed", this can be greatly improved for simplicity by changing typeof to three different types like member, available and borrowed */}
                                 <List mainColor='grön' listColor='ljusGrön' typeOf='AvailableBooks' request="availableBooks"/>
@@ -159,11 +159,11 @@ const Main = () => {
                 <>
                     <div className='h-[100%] w-[100%] flex  flex-row'>
                         <div className='w-full h-[100%] flex flex-col content-between'>
-                            <div className='h-[10%] mb-[3%]'>
+                            <div className='h-[20%]'>
                                 <MainNavbar/>
                             </div>
                         
-                            <div className='h-[85%] w-full  bg-white rounded-2xl'>
+                            <div className='h-[80%] w-full  bg-white rounded-2xl'>
                                 <></>
                                 <List mainColor='blå' listColor='ljusBlå' typeOf='BorrowedBooks' request="borrowed"/>
                             </div>
@@ -177,11 +177,11 @@ const Main = () => {
                 <>
                     <div className='h-[100%] w-[100%] flex  flex-row'>
                         <div className='w-full h-[100%] flex flex-col content-between'>
-                            <div className='h-[10%] mb-[3%]'>
+                            <div className='h-[20%]'>
                                 <MainNavbar/>
                             </div>
                         
-                            <div className='h-[85%] w-full  bg-white rounded-2xl'>
+                            <div className='h-[80%] w-full  bg-white rounded-2xl'>
                                 <></>
                                 <List mainColor='blå' listColor='ljusBlå' typeOf='BorrowedBooks' request="borrowed"/>
                             </div>
@@ -191,9 +191,23 @@ const Main = () => {
             )}/>
 
             {/* Displays loaned books */}
-            <Route path="/detailsStaff/:cate/:ID" element={(
-                <Details/>
-            )}/>
+            <Route path="/details/:category/:PID" element={( <>
+                <>
+                    <div className='h-[100%] w-[100%] flex  flex-row z-10'>
+                        <div className='w-full h-[100%] flex flex-col content-between'>
+                            <div className='h-[20%]'>
+                                <MainNavbar/>
+                            </div>
+                        
+                            <div className='h-[80%]  w-full rounded-2xl'>
+                                <></>
+                                <Details/>
+                            </div>
+                        </div> 
+                    </div>
+                </>
+                
+            </>)}/>
 
             </Routes>
 
